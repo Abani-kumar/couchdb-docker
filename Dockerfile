@@ -3,8 +3,9 @@ FROM couchdb:latest
 # Expose CouchDB's default port
 EXPOSE 5984
 
-# Copy custom CouchDB configuration
-COPY local.ini /opt/couchdb/etc/local.ini
+# Set environment variables
+ENV COUCHDB_USER=admin
+ENV COUCHDB_PASSWORD=chepu@123
 
-# Use the default CouchDB entry point
-CMD ["tini", "--", "couchdb"]
+# Run CouchDB using the default entrypoint
+CMD ["couchdb"]
