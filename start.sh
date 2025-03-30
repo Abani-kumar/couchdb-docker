@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Start CouchDB in the background
-couchdb &
+# Start CouchDB using the full path
+/opt/couchdb/bin/couchdb &
 
 # Wait for CouchDB to start
 echo "Waiting for CouchDB to start..."
@@ -11,7 +11,7 @@ done
 
 echo "CouchDB is ready!"
 
-# Create required databases with authentication
+# Create system databases with authentication
 curl -X PUT http://admin:chepu@123@127.0.0.1:5984/_users
 curl -X PUT http://admin:chepu@123@127.0.0.1:5984/_replicator
 curl -X PUT http://admin:chepu@123@127.0.0.1:5984/_global_changes
