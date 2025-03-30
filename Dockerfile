@@ -1,12 +1,11 @@
-# Use the official CouchDB image
 FROM couchdb:latest
 
-# Expose CouchDB's default port
+# Expose CouchDB default port
 EXPOSE 5984
 
 # Set environment variables
 ENV COUCHDB_USER=admin
-ENV COUCHDB_PASSWORD="chepu@123"
+ENV COUCHDB_PASSWORD=abani@123
 
-# Run CouchDB
-CMD ["couchdb"]
+# Start CouchDB and create system databases
+CMD ["sh", "-c", "couchdb & sleep 5 && curl -X PUT http://admin:COUCHDB_PASSWORD@127.0.0.1:5984/_users && wait"]
