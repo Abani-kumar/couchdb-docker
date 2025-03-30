@@ -6,7 +6,7 @@ EXPOSE 5984
 
 # Set environment variables
 ENV COUCHDB_USER=admin
-ENV COUCHDB_PASSWORD=yourpassword
+ENV COUCHDB_PASSWORD="chepu@123"
 
 # Run CouchDB
 CMD ["couchdb"]
